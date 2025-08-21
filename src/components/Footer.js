@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import WebLogo from './shared/WebLogo'; // Assuming WebLogo is in the same folder
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -10,7 +10,22 @@ export default function Footer() {
         <div className="footer flex justify-between items-start flex-col sm:flex-row gap-10">
           {/* Column 1: Brand Info */}
           <aside>
-            <WebLogo />
+            <Link href="/" className='flex items-center'>
+              {/* The w-XX class here controls the final rendered size */}
+              <div className='w-10 lg:w-12 flex flex-row items-center gap-2'>
+                <Image
+                  // These props define the image's original aspect ratio
+                  width={144}
+                  height={20}
+                  className='mb-2 h-auto w-full'
+                  src="/assets/WebLogo.png"
+                  alt="NextCart Logo - Go to Home"
+                />
+                <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#0d989b] to-[#202570] bg-clip-text text-transparent">
+                  NextCart
+                </p>
+              </div>
+            </Link>
             <p className="mt-4 max-w-xs">
               NextCart Ltd.
               <br />
@@ -30,9 +45,9 @@ export default function Footer() {
           {/* Column 3: Legal */}
           <nav>
             <header className="footer-title">Legal</header>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <Link href="/terms" className="link link-hover">Terms of use</Link>
+            <Link href='/privacy' className="link link-hover">Privacy policy</Link>
+            <Link href="/cookies" className="link link-hover">Cookie policy</Link>
           </nav>
 
           {/* Column 4: Newsletter */}
@@ -60,14 +75,17 @@ export default function Footer() {
             © {new Date().getFullYear()} NextCart Ltd. All Rights Reserved.
           </p>
           <div className="flex justify-center space-x-6 mt-4 sm:mt-0">
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors">
-              <FaTwitter className="h-6 w-6" />
+            <a href="https://www.linkedin.com/in/yeasin-islam10/" className="text-gray-500 hover:text-primary transition-colors" target="_blank">
+              <FaLinkedinIn className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors">
-              <FaInstagram className="h-6 w-6" />
+            <a href="https://github.com/yeasin-islam" className="text-gray-500 hover:text-primary transition-colors" target="_blank">
+              <FaGithub className="h-6 w-6" />
             </a>
-            <a href="#" className="text-gray-500 hover:text-primary transition-colors">
+            <a href="https://www.facebook.com/yeasin.islam2018" className="text-gray-500 hover:text-primary transition-colors" target="_blank">
               <FaFacebook className="h-6 w-6" />
+            </a>
+            <a href="https://x.com/yeasin_islam75" className="text-gray-500 hover:text-primary transition-colors" target="_blank">
+              <FaTwitter className="h-6 w-6" />
             </a>
           </div>
         </div>

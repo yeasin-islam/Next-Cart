@@ -23,15 +23,6 @@ export default function ProductHighlights() {
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
-
-        {/* "View All" Button */}
-        <div className="text-center mt-12">
-          <Link href="/products">
-            <button className="btn btn-primary btn-lg">
-              View All Products
-            </button>
-          </Link>
-        </div>
       </div>
     </section>
   );

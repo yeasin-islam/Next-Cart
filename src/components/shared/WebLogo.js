@@ -31,7 +31,7 @@ export default function WebLogo() {
                     src="/assets/WebLogo.png"
                     alt="NextCart Logo - Go to Home"
                 />
-                <p className="hidden md:block text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#0d989b] to-[#202570] bg-clip-text text-transparent">
+                <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#0d989b] to-[#202570] bg-clip-text text-transparent">
                     NextCart
                 </p>
             </div>

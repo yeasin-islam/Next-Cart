@@ -13,7 +13,7 @@ const teamMembers = [
     socials: {
       linkedin: 'https://linkedin.com/in/yeasin-islam10',
       github: 'https://github.com/yeasin-islam',
-      twitter: 'https://twitter.com/yeasin-islam75',
+      twitter: 'https://x.com/yeasin_islam75',
     },
   },
   {

@@ -29,10 +29,10 @@ export const featuredProducts = [
   {
     "_id": "68a6c5eb0c4031be40b094be",
     "id": 1,
-    "name": "Classic Leather Watch",
-    "description": "A timeless piece with a genuine leather strap and stainless steel case.",
-    "price": 149.99,
-    "image": "/assets/products/watch.png",
-    "category": "Accessories"
+    "name": "Professional Video Tripod",
+    "description": "A heavy-duty tripod with a fluid head for smooth pans and tilts. Essential for any serious videographer.",
+    "price": 299.00,
+    "image": "https://i.ibb.co/MyPbZLT4/images-11.jpg",
+    "category": "Lenses & Accessories"
   }
 ];
