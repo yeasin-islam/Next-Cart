@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Hero() {
   return (
     <div className="relative bg-base-200 dark:bg-gray-900 overflow-hidden">
@@ -29,11 +27,11 @@ export default function Hero() {
             <p className="text-lg text-gray-600 mt-6 max-w-md lg:max-w-lg mx-auto lg:mx-0">
               Discover the latest cameras, lenses, and gear designed for creators and storytellers. Whether you’re a beginner or a pro, our collection helps you turn moments into memories with clarity, precision, and style.
             </p>
-            <Link href="/products" className="btn btn-primary mt-6">
+            <a href="/products">
               <button className="border border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-md mt-8 hover:bg-gray-200 transition-colors duration-300">
                 GET STARTED
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
