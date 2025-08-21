@@ -11,7 +11,7 @@ export default function TermsOfUsePage() {
           <div className="prose max-w-none dark:prose-invert">
             <h2 className="text-2xl font-bold">1. Agreement to Terms</h2>
             <p>
-              Welcome to NextCart! These Terms of Use (Terms) govern your access to and use of our website, products, and services (collectively, the Service). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you may not use the Service.
+              Welcome to NextCart! These Terms of Use ("Terms") govern your access to and use of our website, products, and services (collectively, the "Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you may not use the Service.
             </p>
 
             <h2 className="text-2xl font-bold mt-6">2. User Accounts</h2>
@@ -21,7 +21,7 @@ export default function TermsOfUsePage() {
 
             <h2 className="text-2xl font-bold mt-6">3. Products and Sales</h2>
             <p>
-              We strive to display as accurately as possible the colors and images of our products. We cannot guarantee that your computer monitor s display of any color will be accurate. We reserve the right to limit the sales of our products to any person, geographic region, or jurisdiction. All descriptions of products or product pricing are subject to change at any time without notice, at our sole discretion.
+              We strive to display as accurately as possible the colors and images of our products. We cannot guarantee that your computer monitor's display of any color will be accurate. We reserve the right to limit the sales of our products to any person, geographic region, or jurisdiction. All descriptions of products or product pricing are subject to change at any time without notice, at our sole discretion.
             </p>
 
             <h2 className="text-2xl font-bold mt-6">4. Intellectual Property</h2>
@@ -35,7 +35,7 @@ export default function TermsOfUsePage() {
             </p>
             <ul>
               <li>In any way that violates any applicable national or international law or regulation.</li>
-              <li>To engage in any conduct that restricts or inhibits anyone s use or enjoyment of the Service.</li>
+              <li>To engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Service.</li>
               <li>To impersonate or attempt to impersonate NextCart, a NextCart employee, another user, or any other person or entity.</li>
               <li>To use any robot, spider, or other automatic device, process, or means to access the Service for any purpose, including monitoring or copying any of the material on the Service.</li>
             </ul>

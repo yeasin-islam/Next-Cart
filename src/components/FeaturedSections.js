@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const FeatureCard = ({ title, subtitle, description, imageSrc, backgroundColor }) => (
   <div className="bg-white rounded-lg shadow-md overflow-hidden">
     <div className="relative">
@@ -8,10 +6,7 @@ const FeatureCard = ({ title, subtitle, description, imageSrc, backgroundColor }
       <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full transform -translate-x-1/4 translate-y-1/4 opacity-50" style={{ backgroundColor }}></div>
       <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full transform translate-x-1/4 translate-y-1/4 opacity-50" style={{ backgroundColor }}></div>
       <div className="relative p-6 flex justify-center items-center h-48">
-        <Image
-        width={200}
-        height={200}
-         src={imageSrc} alt={title} objectFit="contain" className="absolute" />
+        <img src={imageSrc} alt={title} layout="fill" objectFit="contain" className="absolute" />
       </div>
     </div>
     <div className="p-6 text-center">

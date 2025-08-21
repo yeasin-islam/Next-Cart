@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -9,9 +9,7 @@ export default function Hero() {
           <div className="relative lg:w-1/2 flex justify-center mb-8 lg:mb-0">
             <div className="absolute rounded-full bg-blue-500 w-64 h-64 lg:w-80 lg:h-80 -ml-16 lg:-ml-24 -mt-8 lg:-mt-12"></div>
             <div className="relative z-10  rounded-md overflow-hidden">
-              <Image
-              width={500 }
-              height={500 }
+              <img
                 src="https://i.ibb.co.com/8nVDnWNm/images-3-removebg-preview.png"
                 alt="DSLR Camera"
                 className="object-cover max-w-full h-auto"
@@ -31,9 +29,11 @@ export default function Hero() {
             <p className="text-lg text-gray-600 mt-6 max-w-md lg:max-w-lg mx-auto lg:mx-0">
               Discover the latest cameras, lenses, and gear designed for creators and storytellers. Whether you’re a beginner or a pro, our collection helps you turn moments into memories with clarity, precision, and style.
             </p>
-            <button className="border border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-md mt-8 hover:bg-gray-200 transition-colors duration-300">
-              GET STARTED
-            </button>
+            <Link href="/products" className="btn btn-primary mt-6">
+              <button className="border border-gray-400 text-gray-700 font-semibold py-3 px-6 rounded-md mt-8 hover:bg-gray-200 transition-colors duration-300">
+                GET STARTED
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
           <div className="prose max-w-none dark:prose-invert">
             <h2 className="text-2xl font-bold">1. Introduction</h2>
             <p>
-              NextCart Ltd. (we, our, or us) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, nextcart.com (the Site). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+              NextCart Ltd. ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, nextcart.com (the "Site"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
             </p>
 
             <h2 className="text-2xl font-bold mt-6">2. Information We Collect</h2>
