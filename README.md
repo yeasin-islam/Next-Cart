@@ -1,26 +1,3 @@
-<p align="center">
-    <img
-        src="/assets/WebLogo.png"
-        width="144"
-        height="20"
-        alt="NextCart Logo"
-        style="margin-bottom: 8px; height: auto; width: 100%;"
-    />
-    <span style="
-        display: inline-block;
-        font-size: 2rem;
-        font-weight: bold;
-        background: linear-gradient(to right, #0d989b, #202570);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-        margin-top: 8px;
-    ">
-        NextCart
-    </span>
-</p>
-
 # Next-Cart
 
 Next-Cart is a modern e-commerce web application built with [Next.js](https://nextjs.org), React, and MongoDB. It features user authentication, product management, and a responsive UI powered by Tailwind CSS and DaisyUI.
@@ -42,7 +19,7 @@ Next-Cart is a modern e-commerce web application built with [Next.js](https://ne
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/next-cart.git
+   git clone https://github.com/yeasin-islam/Next-Cart
    cd next-cart
    ```
 
