@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+    <img
+        src="/assets/WebLogo.png"
+        width="144"
+        height="20"
+        alt="NextCart Logo"
+        style="margin-bottom: 8px; height: auto; width: 100%;"
+    />
+    <span style="
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: bold;
+        background: linear-gradient(to right, #0d989b, #202570);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-top: 8px;
+    ">
+        NextCart
+    </span>
+</p>
 
-## Getting Started
+# Next-Cart
 
-First, run the development server:
+Next-Cart is a modern e-commerce web application built with [Next.js](https://nextjs.org), React, and MongoDB. It features user authentication, product management, and a responsive UI powered by Tailwind CSS and DaisyUI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- User authentication with NextAuth (Google OAuth)
+- Product listing, details, and dashboard management
+- Responsive design with Tailwind CSS & DaisyUI
+- MongoDB integration for data persistence
+- Image upload support (IMGBB API)
+- Toast notifications and reusable components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Setup & Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/your-username/next-cart.git
+   cd next-cart
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Configure environment variables**
+   - Copy `.env.local` and update with your credentials:
+     - Google OAuth Client ID/Secret
+     - MongoDB URI
+     - IMGBB API Key
 
-## Deploy on Vercel
+4. **Run the development server**
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Open in browser**
+   - Visit [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🗺️ Route Summary
+
+| Route                        | Description                        |
+|------------------------------|------------------------------------|
+| `/`                          | Home page                          |
+| `/about`                     | About page                         |
+| `/contact`                   | Contact page                       |
+| `/login`                     | User login (Google OAuth)          |
+| `/profile`                   | User profile                       |
+| `/products`                  | Product listing                    |
+| `/products/[id]`             | Product details                    |
+| `/dashboard`                 | Dashboard layout                   |
+| `/dashboard/overview`        | Dashboard overview                 |
+| `/dashboard/add-product`     | Add new product                    |
+| `/api/auth/[...nextauth]`    | Auth API route                     |
+| `/api/products`              | Products API route                 |
+| `/api/users`                 | Users API route                    |
+| `/api/upload`                | Image upload API route             |
+| `/favicon.ico`               | Favicon                            |
+
+---
+
+## 📦 Tech Stack
+
+- Next.js 15
+- React 19
+- MongoDB
+- NextAuth
+- Tailwind CSS & DaisyUI
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
