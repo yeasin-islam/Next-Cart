@@ -3,13 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Best Practice: Function to get a SINGLE product by its ID
-async function getProduct(id) {
-  // This fetch should point to an API that can return one product
-  // For now, we'll simulate it by fetching all and finding one.
+async function getProduct(_id) {
   const res = await fetch("https://next-cart-murex.vercel.app/api/products", { cache: "no-store" });
   if (!res.ok) return undefined;
   const products = await res.json();
-  return products.find(p => p._id === id);
+  return products.find(p => p._id === _id);
 }
 
 // Function to get all products (for the "Related" section)
@@ -30,9 +28,18 @@ export default async function ProductDetails({ params }) {
 
   // Find 3 other random products to display as "related"
   const relatedProducts = allProducts
-    .filter(p => p._id !== product._id) // Exclude the current product
+    .filter(p => p.category === product.category && p._id !== product._id) // Exclude the current product
     .sort(() => 0.5 - Math.random()) // Shuffle the array
     .slice(0, 3); // Take the first 3
+
+  const handleQuantityChange = (amount) => {
+    setQuantity(prev => Math.max(1, prev + amount)); // Ensure quantity is at least 1
+  };
+
+  const handleAddToCart = () => {
+    toast.success(`${quantity} x ${product.name} added to cart!`);
+    // Here you would typically dispatch an action to your cart state management
+  };
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
@@ -40,12 +47,10 @@ export default async function ProductDetails({ params }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Image Column */}
           <div className="relative w-full h-80 md:h-96 rounded-lg bg-white dark:bg-gray-800 shadow-lg overflow-hidden">
-            <Image
-              width={500}
-              height={500}
+            <img
               src={product.image}
               alt={product.name}
-              className="object-contain p-8"
+              className="object-contain p-8 w-full h-full absolute"
             />
           </div>
 
@@ -93,11 +98,15 @@ export default async function ProductDetails({ params }) {
         {/* You Might Also Like Section */}
         <div className="mt-24">
           <h2 className="text-3xl font-bold text-center mb-10">You Might Also Like</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {relatedProducts.map(related => (
-              <RelatedProductCard key={related._id} product={related} />
-            ))}
-          </div>
+          {relatedProducts.length === 0 ? (
+            <p className="text-center font-bold text-red-500">No related products found.</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedProducts.map(product => (
+              <RelatedProductCard key={product._id} product={product} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

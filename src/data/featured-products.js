@@ -1,38 +1,38 @@
 export const featuredProducts = [
   {
-    "_id": "68a7c12a0c4031be40b098a1",
-    "id": 101,
-    "name": "Professional DSLR Camera",
-    "description": "Capture stunning, high-resolution photos with this professional-grade DSLR camera.",
-    "price": 899.99,
-    "image": "https://i.ibb.co/YsJnwVm/download-1.jpg",
-    "category": "DSLR Camera"
+    "_id": "68a8f1b2c4d3e5a1b0c9d2a6",
+    "id": 306,
+    "name": "ActionCam 4K Adventure Pro",
+    "description": "A rugged, waterproof action camera built for the extreme. Records ultra-smooth, stabilized 4K video at 60fps, so you never miss a moment.",
+    "price": 399,
+    "category": "Action Camera",
+    "image": "https://i.ibb.co/7dbYg53H/download-6.jpg"
   },
   {
-    "_id": "68a7c12a0c4031be40b098a2",
-    "id": 102,
-    "name": "Compact Mirrorless Camera",
-    "description": "A lightweight and versatile mirrorless camera perfect for travel and everyday use.",
-    "price": 649.50,
-    "image": "https://i.ibb.co/35s9Z8K4/download-2.jpg",
-    "category": "Mirrorless Camera"
+    "_id": "68a8f1b2c4d3e5a1b0c9d2a7",
+    "id": 307,
+    "name": "Classic 35mm SLR Camera",
+    "description": "A fully mechanical SLR film camera, renowned for its reliability and sharp optics. A perfect tool for students and purists of the craft.",
+    "price": 180,
+    "category": "Film Camera",
+    "image": "https://i.ibb.co/gZ5kwJjP/download-7.jpg"
   },
   {
-    "_id": "68a7c12a0c4031be40b098a4",
-    "id": 104,
-    "name": "Action Adventure Camera",
-    "description": "A rugged, waterproof action camera designed for adventure and extreme sports.",
-    "price": 399.00,
-    "image": "https://i.ibb.co/G3kRk4Bm/images-52.jpg",
-    "category": "Action Camera"
+    "_id": "68a8f1b2c4d3e5a1b0c9d2a8",
+    "id": 308,
+    "name": "Vlogger's Compact Camera",
+    "description": "Designed for content creators, this camera features a flip-out screen, excellent built-in microphone, and fast autofocus for perfect vlogs every time.",
+    "price": 699,
+    "category": "Mirrorless Camera",
+    "image": "https://i.ibb.co/RT3W32Jh/download-8.jpg"
   },
   {
-    "_id": "68a6c5eb0c4031be40b094be",
-    "id": 1,
-    "name": "Professional Video Tripod",
-    "description": "A heavy-duty tripod with a fluid head for smooth pans and tilts. Essential for any serious videographer.",
-    "price": 299.00,
-    "image": "https://i.ibb.co/MyPbZLT4/images-11.jpg",
-    "category": "Lenses & Accessories"
-  }
+    "_id": "68a8f1b2c4d3e5a1b0c9d2c7",
+    "id": 339,
+    "name": "Underwater Camera Housing",
+    "description": "Take your DSLR or mirrorless camera on a dive. This durable housing is rated for depths up to 40 meters.",
+    "price": 350,
+    "category": "Lenses & Accessories",
+    "image": "https://i.ibb.co/JRgfMV0X/images-27.jpg"
+  },
 ];

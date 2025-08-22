@@ -2,21 +2,22 @@
 
 import { useState, useMemo } from "react";
 import ProductCard from "../shared/PoductCard";
+// import ProductCard from "@/components/shared/ProductCard"; // Ensure this path and name is correct
 
 const ITEMS_PER_PAGE = 8;
 
 export default function ProductList({ products }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortBy, setSortBy] = useState("default"); // <-- NEW: State for sorting
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Get unique categories from the products list
   const categories = useMemo(() => {
     const uniqueCategories = new Set(products.map(p => p.category));
     return ["All", ...Array.from(uniqueCategories)];
   }, [products]);
 
-  // Filter products based on search and category
+  // Step 1: Filter products based on search and category
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
       const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
@@ -25,33 +26,50 @@ export default function ProductList({ products }) {
     });
   }, [products, searchQuery, selectedCategory]);
 
-  // Paginate the filtered products
+  // <-- NEW: Step 2: Sort the filtered products
+  const sortedProducts = useMemo(() => {
+    const sortableProducts = [...filteredProducts]; // Create a new array to avoid mutating the original
+    if (sortBy === "price-asc") {
+      sortableProducts.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-desc") {
+      sortableProducts.sort((a, b) => b.price - a.price);
+    }
+    // if "default", no sorting is applied
+    return sortableProducts;
+  }, [filteredProducts, sortBy]);
+
+
+  // Step 3: Paginate the sorted products
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [filteredProducts, currentPage]);
+    return sortedProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [sortedProducts, currentPage]);
 
-  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(sortedProducts.length / ITEMS_PER_PAGE);
+
+  const handleFilterChange = () => {
+    setCurrentPage(1); // Reset to first page on any filter/search/sort change
+  };
 
   return (
     <div>
-      {/* --- Filters and Search Bar --- */}
-      <div className="flex gap-4 mb-8 p-4 bg-base-100 rounded-lg shadow">
+      {/* --- Filters, Search, and Sort Bar --- */}
+      <div className="flex flex-col md:flex-row flex-wrap gap-4 mb-8 p-4 bg-base-100 rounded-lg shadow">
         <input
           type="text"
           placeholder="Search by product name..."
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
-            setCurrentPage(1); // Reset to first page on new search
+            handleFilterChange();
           }}
-          className="input input-bordered w-full md:w-1/2"
+          className="input input-bordered md:flex-grow"
         />
         <select
           value={selectedCategory}
           onChange={(e) => {
             setSelectedCategory(e.target.value);
-            setCurrentPage(1); // Reset to first page on new filter
+            handleFilterChange();
           }}
           className="select select-bordered w-full md:w-auto"
         >
@@ -59,6 +77,21 @@ export default function ProductList({ products }) {
             <option key={cat} value={cat}>{cat}</option>
           ))}
         </select>
+        
+        {/* --- NEW: Sorting Dropdown --- */}
+        <select
+          value={sortBy}
+          onChange={(e) => {
+            setSortBy(e.target.value);
+            handleFilterChange();
+          }}
+          className="select select-bordered w-full md:w-auto"
+        >
+          <option value="default">Default Sorting</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+        {/* --------------------------- */}
       </div>
 
       {/* --- Products Grid --- */}
@@ -85,7 +118,7 @@ export default function ProductList({ products }) {
             >
               «
             </button>
-            <button className="join-item btn">
+            <button className="join-item btn btn-active">
               Page {currentPage} of {totalPages}
             </button>
             <button

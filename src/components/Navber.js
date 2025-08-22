@@ -6,11 +6,13 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { useSession, signOut } from "next-auth/react";
 import Link from 'next/link';
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
     const { data: session, status } = useSession();
     const user = session?.user;
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname(); // Step 2: Get the current path
 
     const navLinks = [
         { href: "/", label: "Home" },
@@ -22,29 +24,43 @@ export default function Navbar() {
     return (
         <div className="bg-base-300 w-full sticky top-0 z-50 shadow-md">
             <div className="container mx-auto">
-                <div className="flex justify-between items-center py-3 px-4">
+                <div className="flex justify-between items-center py-2 px-4">
                     <WebLogo />
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden text-xl lg:flex items-center space-x-4">
                         <ul className="flex space-x-4">
-                            {navLinks.map(link => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="hover:text-primary transition-colors duration-200">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
+                            {navLinks.map(link => {
+                                // Step 3: Check if the link is active
+                                const isActive = pathname === link.href;
+
+                                return (
+                                    <li key={link.href}>
+                                        <Link 
+                                            href={link.href}
+                                            // Step 4: Apply classes conditionally
+                                            className={`px-3 py-1 rounded-md text-md font-medium transition-colors duration-200 
+                                                ${isActive 
+                                                    ? 'text-[#0d989b] font-bold border-b-2 border-[#0d989b]' 
+                                                    : 'text-slate-700 hover:text-[#0d989b]'
+                                                }`
+                                            }
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
                     {/* User Profile Icon & Auth Logic (Desktop) */}
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden lg:flex items-center space-x-4">
                         <AuthIcon status={status} user={user} />
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="lg:hidden flex items-center">
                         <AuthIcon status={status} user={user} /> {/* Also show icon on mobile */}
                         <button onClick={() => setIsOpen(!isOpen)} className="btn btn-ghost">
                             {isOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
@@ -54,7 +70,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className="md:hidden px-4 pb-4 flex flex-col items-center gap-4">
+                    <div className="lg:hidden px-4 pb-4 flex flex-col items-center gap-4">
                         <ul className="flex flex-col items-center space-y-2 w-full">
                             {navLinks.map(link => (
                                 <li key={link.href} className="w-full text-center">

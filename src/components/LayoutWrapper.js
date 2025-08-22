@@ -9,7 +9,7 @@ export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
 
   // Define paths where Navbar and Footer should be hidden
-  const hideOnPaths = ["/dashboard", "/dashboard/add-product"];
+  const hideOnPaths = ["/dashboard", "/login"];
 
   // Check if the current path starts with any of the paths in the array
   const shouldHide = hideOnPaths.some(path => pathname.startsWith(path));

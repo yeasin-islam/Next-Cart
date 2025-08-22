@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from 'react'; // Import useEffect
+import { useEffect, useState } from 'react'; // Import useEffect
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { usePathname, useRouter } from 'next/navigation'; // Import useRouter
 import Image from 'next/image';
 import WebLogo from '../shared/WebLogo';
 import {
@@ -19,6 +19,8 @@ export default function DashboardLayout({ children }) {
     const { data: session, status } = useSession(); // Get the status
     const router = useRouter();
     const user = session?.user;
+    const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
 
     // --- Authentication Check ---
     useEffect(() => {
@@ -36,7 +38,7 @@ export default function DashboardLayout({ children }) {
             </div>
         );
     }
-    
+
     // If authenticated, render the dashboard
     if (status === "authenticated") {
         const navLinks = [
@@ -76,17 +78,33 @@ export default function DashboardLayout({ children }) {
                         <div className="px-4 mb-4">
                             <WebLogo />
                         </div>
-                        <ul className="flex-grow">
-                            {navLinks.map(link => (
-                                <li key={link.href}>
-                                    <Link href={link.href}>
-                                        <span className="text-lg mr-2">{link.icon}</span>
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="mt-auto p-4 border-t border-base-300">
+                        <div className="text-xl flex items-center">
+                            <ul className="space-x-4">
+                                {navLinks.map(link => {
+                                    // Step 3: Check if the link is active
+                                    const isActive = pathname === link.href;
+
+                                    return (
+                                        <li key={link.href}>
+                                            <Link
+                                                href={link.href}
+                                                // Step 4: Apply classes conditionally
+                                                className={`py-2 rounded-md text-md font-medium transition-colors 
+                                                ${isActive
+                                                        ? 'text-[#049CA0] font-bold border-b-2 border-[#049CA0]'
+                                                        : 'text-slate-700 hover:text-[#049CA0]'
+                                                    }`
+                                                }
+                                            >
+                                                <span className="text-lg mr-2">{link.icon}</span>
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                        <div className="mt-auto border-t border-base-300">
                             {user && (
                                 <div>
                                     <Link href="/profile" className="flex items-center gap-4 p-2 rounded-lg hover:bg-base-300">
@@ -102,11 +120,12 @@ export default function DashboardLayout({ children }) {
                                         </div>
                                         <div>
                                             <p className="font-bold">{user.name}</p>
+                                            <p className="text-sm text-gray-500">{user.email}</p>
                                         </div>
                                     </Link>
                                     <button
                                         onClick={() => signOut({ callbackUrl: '/' })}
-                                        className="btn btn-error w-full text-white mt-4"
+                                        className="btn btn-error w-full rounded-2xl text-white mt-4"
                                     >
                                         <HiLogout /> Logout
                                     </button>

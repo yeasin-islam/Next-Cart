@@ -6,7 +6,7 @@ const FeatureCard = ({ title, subtitle, description, imageSrc, backgroundColor }
       <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full transform -translate-x-1/4 translate-y-1/4 opacity-50" style={{ backgroundColor }}></div>
       <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full transform translate-x-1/4 translate-y-1/4 opacity-50" style={{ backgroundColor }}></div>
       <div className="relative p-6 flex justify-center items-center h-48">
-        <img src={imageSrc} alt={title} layout="fill" objectFit="contain" className="absolute" />
+        <img src={imageSrc} alt={title} objectFit="contain" className="absolute" />
       </div>
     </div>
     <div className="p-6 text-center">
@@ -21,6 +21,16 @@ const FeatureCard = ({ title, subtitle, description, imageSrc, backgroundColor }
 export default function FeaturedSections() {
   return (
     <div className="py-12 bg-gray-50">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white">
+          Showcasing
+        </h2>
+        <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+          Showcasing the latest in digital cameras, lenses, and photography accessories.
+        </p>
+        <div className="divider w-24 mx-auto mt-4"></div>
+      </div>
+      {/* Grid Layout for Feature Cards */}
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         <FeatureCard
           title="DISC UP TO 50%"
